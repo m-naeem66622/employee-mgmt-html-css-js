@@ -1,4 +1,7 @@
-/* Enhanced employee listing functionality */
+/* Unified Employee Management Functionality
+   This file combines both employee.js and employees.js to eliminate redundancy
+   while preserving all features from both files.
+*/
 
 // Global variables
 let employees = [];
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         departmentFilter.addEventListener("change", filterEmployees);
     }
 
-    // Sorting functionality
+    // Sorting functionality (from employees.js)
     if (sortFieldSelect) {
         sortFieldSelect.addEventListener("change", function () {
             sortField = this.value;
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Pagination
+    // Pagination (from employees.js)
     if (prevPageBtn) {
         prevPageBtn.addEventListener("click", function () {
             if (currentPage > 1) {
@@ -94,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Export CSV
+    // Export CSV (from employees.js)
     if (exportCSVBtn) {
         exportCSVBtn.addEventListener("click", exportEmployeesToCSV);
     }
@@ -117,33 +120,33 @@ function loadEmployees() {
         const initialEmployees = [
             // IT Department
             {
-                id: generateId(),
-                name: "Saad Qadeer",
+                id: generateUUID(),
+                name: "John Smith",
                 position: "Software Engineer",
                 department: "IT",
-                email: "saad.qadeer@company.com",
+                email: "john.smith@company.com",
                 phone: "555-123-4567",
                 hireDate: "2023-05-15",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Aysha Shakeel",
+                id: generateUUID(),
+                name: "Aisha Patel",
                 position: "Senior Developer",
                 department: "IT",
-                email: "aysha.shakeel@company.com",
+                email: "aisha.patel@company.com",
                 phone: "555-222-3333",
                 hireDate: "2022-08-10",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Hussnain Raees",
+                id: generateUUID(),
+                name: "Carlos Mendez",
                 position: "System Administrator",
                 department: "IT",
-                email: "hussnain.raees@company.com",
+                email: "carlos.mendez@company.com",
                 phone: "555-444-5555",
                 hireDate: "2023-01-20",
                 createdAt: new Date().toISOString(),
@@ -152,22 +155,22 @@ function loadEmployees() {
 
             // HR Department
             {
-                id: generateId(),
-                name: "Zoha Azam",
+                id: generateUUID(),
+                name: "Sarah Johnson",
                 position: "HR Manager",
                 department: "HR",
-                email: "zoha.azam@company.com",
+                email: "sarah.johnson@company.com",
                 phone: "555-234-5678",
                 hireDate: "2022-11-03",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Omar Malik",
+                id: generateUUID(),
+                name: "James Wilson",
                 position: "Recruitment Specialist",
                 department: "HR",
-                email: "omar.malik@company.com",
+                email: "james.wilson@company.com",
                 phone: "555-666-7777",
                 hireDate: "2023-09-15",
                 createdAt: new Date().toISOString(),
@@ -176,33 +179,33 @@ function loadEmployees() {
 
             // Finance Department
             {
-                id: generateId(),
-                name: "Rafay Hassan",
+                id: generateUUID(),
+                name: "Michael Chen",
                 position: "Financial Analyst",
                 department: "Finance",
-                email: "rafay.hassan@company.com",
+                email: "michael.chen@company.com",
                 phone: "555-345-6789",
                 hireDate: "2023-02-28",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Sarab Sohail",
+                id: generateUUID(),
+                name: "Sophia Kim",
                 position: "Accounting Manager",
                 department: "Finance",
-                email: "sarab.sohail@company.com",
+                email: "sophia.kim@company.com",
                 phone: "555-888-9999",
                 hireDate: "2022-07-12",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Hamza Abdullah",
+                id: generateUUID(),
+                name: "Robert Johnson",
                 position: "Budget Analyst",
                 department: "Finance",
-                email: "hamza.abdullah@company.com",
+                email: "robert.johnson@company.com",
                 phone: "555-111-2222",
                 hireDate: "2023-11-05",
                 createdAt: new Date().toISOString(),
@@ -211,33 +214,33 @@ function loadEmployees() {
 
             // Marketing Department
             {
-                id: generateId(),
-                name: "Laiba Fayyaz",
+                id: generateUUID(),
+                name: "Emily Rodriguez",
                 position: "Marketing Specialist",
                 department: "Marketing",
-                email: "laiba.fayyaz@company.com",
+                email: "emily.rodriguez@company.com",
                 phone: "555-456-7890",
                 hireDate: "2023-08-17",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Tariq Rahman",
+                id: generateUUID(),
+                name: "Thomas Lee",
                 position: "Digital Marketing Manager",
                 department: "Marketing",
-                email: "tariq.rahman@company.com",
+                email: "thomas.lee@company.com",
                 phone: "555-333-4444",
                 hireDate: "2022-10-22",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Layla Hassan",
+                id: generateUUID(),
+                name: "Olivia Garcia",
                 position: "Content Creator",
                 department: "Marketing",
-                email: "layla.hassan@company.com",
+                email: "olivia.garcia@company.com",
                 phone: "555-777-8888",
                 hireDate: "2023-04-10",
                 createdAt: new Date().toISOString(),
@@ -246,33 +249,33 @@ function loadEmployees() {
 
             // Operations Department
             {
-                id: generateId(),
-                name: "Yusuf Mahmood",
+                id: generateUUID(),
+                name: "David Wilson",
                 position: "Operations Manager",
                 department: "Operations",
-                email: "yusuf.mahmood@company.com",
+                email: "david.wilson@company.com",
                 phone: "555-567-8901",
                 hireDate: "2022-06-22",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Noor Fatima",
+                id: generateUUID(),
+                name: "Lisa Zhang",
                 position: "Supply Chain Specialist",
                 department: "Operations",
-                email: "noor.fatima@company.com",
+                email: "lisa.zhang@company.com",
                 phone: "555-999-0000",
                 hireDate: "2023-07-15",
                 createdAt: new Date().toISOString(),
                 updatedAt: new Date().toISOString(),
             },
             {
-                id: generateId(),
-                name: "Ibrahim Ahmad",
+                id: generateUUID(),
+                name: "Marcus Brown",
                 position: "Quality Assurance Analyst",
                 department: "Operations",
-                email: "ibrahim.ahmad@company.com",
+                email: "marcus.brown@company.com",
                 phone: "555-555-1234",
                 hireDate: "2022-12-08",
                 createdAt: new Date().toISOString(),
@@ -292,6 +295,9 @@ function loadEmployees() {
     }
 
     renderEmployeeList();
+
+    // Update dashboard statistics if on dashboard page
+    updateDashboardStats();
 }
 
 // Get filtered list of employees based on search and department
@@ -368,6 +374,9 @@ function renderEmployeeList() {
     // Get filtered employees
     const filteredEmployees = getFilteredEmployees();
 
+    // Check if we're on the employees.html page (has pagination and sorting)
+    const isEmployeesPage = document.getElementById("sortField") !== null;
+
     // Show message if no employees
     if (filteredEmployees.length === 0) {
         if (noEmployeesMessage) {
@@ -378,44 +387,54 @@ function renderEmployeeList() {
             pageInfo.textContent = "Page 0 of 0";
         }
 
+        employeeList.innerHTML = `
+            <tr>
+                <td colspan="6" class="text-center py-4">No employees found matching your criteria</td>
+            </tr>
+        `;
         return;
     } else if (noEmployeesMessage) {
         noEmployeesMessage.classList.add("hidden");
     }
 
-    // Sort employees
-    const sortedEmployees = getSortedEmployees(filteredEmployees);
+    let employeesToRender = filteredEmployees;
 
-    // Calculate pagination
-    const totalPages = Math.ceil(sortedEmployees.length / itemsPerPage);
+    // Apply sorting and pagination if on employees.html page
+    if (isEmployeesPage) {
+        // Sort employees
+        const sortedEmployees = getSortedEmployees(filteredEmployees);
 
-    // Update page info
-    if (pageInfo) {
-        pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    }
+        // Calculate pagination
+        const totalPages = Math.ceil(sortedEmployees.length / itemsPerPage);
 
-    // Ensure current page is valid
-    if (currentPage > totalPages) {
-        currentPage = totalPages;
-    }
+        // Update page info
+        if (pageInfo) {
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        }
 
-    // Get paginated employees
-    const paginatedEmployees = getPaginatedEmployees(sortedEmployees);
+        // Ensure current page is valid
+        if (currentPage > totalPages) {
+            currentPage = totalPages;
+        }
 
-    // Disable/enable pagination buttons
-    const prevPageBtn = document.getElementById("prevPageBtn");
-    const nextPageBtn = document.getElementById("nextPageBtn");
+        // Get paginated employees
+        employeesToRender = getPaginatedEmployees(sortedEmployees);
 
-    if (prevPageBtn) {
-        prevPageBtn.disabled = currentPage <= 1;
-    }
+        // Disable/enable pagination buttons
+        const prevPageBtn = document.getElementById("prevPageBtn");
+        const nextPageBtn = document.getElementById("nextPageBtn");
 
-    if (nextPageBtn) {
-        nextPageBtn.disabled = currentPage >= totalPages;
+        if (prevPageBtn) {
+            prevPageBtn.disabled = currentPage <= 1;
+        }
+
+        if (nextPageBtn) {
+            nextPageBtn.disabled = currentPage >= totalPages;
+        }
     }
 
     // Render each employee
-    paginatedEmployees.forEach((employee) => {
+    employeesToRender.forEach((employee) => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${employee.id.slice(0, 8)}</td>
@@ -423,7 +442,11 @@ function renderEmployeeList() {
             <td>${employee.position}</td>
             <td>${employee.department}</td>
             <td>${employee.email}</td>
-            <td>${formatDate(employee.hireDate)}</td>
+            ${
+                isEmployeesPage
+                    ? `<td>${formatDate(employee.hireDate)}</td>`
+                    : ""
+            }
             <td>
                 <div class="flex gap-2 flex-wrap">
                     <button class="btn btn-sm btn-primary" data-id="${
@@ -448,6 +471,13 @@ function renderEmployeeList() {
     });
 }
 
+// Filter employees based on search and department
+function filterEmployees() {
+    // Reset to first page when filtering (for employees.html)
+    currentPage = 1;
+    renderEmployeeList();
+}
+
 // Format date in a readable format
 function formatDate(dateString) {
     if (!dateString) return "N/A";
@@ -460,12 +490,6 @@ function formatDate(dateString) {
         month: "short",
         day: "numeric",
     });
-}
-
-// Filter employees based on search and department
-function filterEmployees() {
-    currentPage = 1; // Reset to first page when filtering
-    renderEmployeeList();
 }
 
 // Export employees to CSV
@@ -530,25 +554,7 @@ function exportEmployeesToCSV() {
     showNotification("Employees exported to CSV successfully", "success");
 }
 
-// The rest of the functions (openAddEmployeeModal, closeEmployeeModal, saveEmployee, etc.)
-// are the same as in employee.js, so I'm omitting them here for brevity.
-// In a real implementation, you might want to refactor these into a shared module.
-
-// For compatibility with the original employee.js
-// Function to view employee details
-function viewEmployeeDetails(id) {
-    if (!id) return;
-
-    // Navigate to employee detail page with the employee ID as a query parameter
-    window.location.href = `./employeeDetail.html?id=${id}`;
-}
-
-// Make functions available globally
-window.viewEmployeeDetails = viewEmployeeDetails;
-window.editEmployee = editEmployee;
-window.openDeleteModal = openDeleteModal;
-
-// These functions would be implemented the same as in employee.js
+// Open modal to add a new employee
 function openAddEmployeeModal() {
     const modal = document.getElementById("employeeModal");
     const modalTitle = document.getElementById("modalTitle");
@@ -576,6 +582,7 @@ function openAddEmployeeModal() {
     }
 }
 
+// Close the employee modal
 function closeEmployeeModal() {
     const modal = document.getElementById("employeeModal");
     if (modal) {
@@ -583,6 +590,7 @@ function closeEmployeeModal() {
     }
 }
 
+// Save employee (create or update)
 function saveEmployee(e) {
     e.preventDefault();
 
@@ -640,12 +648,16 @@ function saveEmployee(e) {
         closeEmployeeModal();
         renderEmployeeList();
 
+        // Update dashboard stats
+        updateDashboardStats();
+
         // Reset button state
         submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
     }, 600); // Slight delay for UX
 }
 
+// Edit an employee
 function editEmployee(id) {
     const employee = employees.find((emp) => emp.id === id);
     if (!employee) return;
@@ -674,6 +686,7 @@ function editEmployee(id) {
     }
 }
 
+// Open delete confirmation modal
 function openDeleteModal(id) {
     currentEmployeeId = id;
 
@@ -683,6 +696,7 @@ function openDeleteModal(id) {
     }
 }
 
+// Close delete confirmation modal
 function closeDeleteModal() {
     const modal = document.getElementById("deleteModal");
     if (modal) {
@@ -690,6 +704,7 @@ function closeDeleteModal() {
     }
 }
 
+// Delete an employee
 function deleteEmployee() {
     if (!currentEmployeeId) return;
 
@@ -712,10 +727,81 @@ function deleteEmployee() {
     // Show notification
     showNotification(`${employeeName} was successfully deleted.`, "success");
 
+    // Update dashboard stats
+    updateDashboardStats();
+
     currentEmployeeId = null;
+}
+
+// Update dashboard statistics
+function updateDashboardStats() {
+    const totalEmployeesEl = document.getElementById("totalEmployees");
+    const totalDepartmentsEl = document.getElementById("totalDepartments");
+    const recentAdditionsEl = document.getElementById("recentAdditions");
+
+    if (!totalEmployeesEl && !totalDepartmentsEl && !recentAdditionsEl) {
+        // Not on dashboard page
+        return;
+    }
+
+    // Update total employees count
+    if (totalEmployeesEl) {
+        totalEmployeesEl.textContent = employees.length;
+    }
+
+    // Calculate unique departments
+    if (totalDepartmentsEl) {
+        const departments = new Set(employees.map((emp) => emp.department));
+        totalDepartmentsEl.textContent = departments.size;
+    }
+
+    // Calculate recent additions (last 30 days)
+    if (recentAdditionsEl) {
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+        const recentCount = employees.filter((emp) => {
+            const createdDate = new Date(emp.createdAt);
+            return createdDate >= thirtyDaysAgo;
+        }).length;
+
+        recentAdditionsEl.textContent = recentCount;
+    }
+}
+
+// Navigate to employee details page
+function viewEmployeeDetails(id) {
+    if (!id) return;
+
+    // Check which page we're on (dashboard or employees)
+    const isDashboardPage = window.location.pathname.includes("dashboard.html");
+
+    // Navigate to employee detail page with the employee ID as a query parameter
+    if (isDashboardPage) {
+        window.location.href = `./employeeDetail.html?id=${id}`;
+    } else {
+        window.location.href = `./employeeDetail.html?id=${id}`;
+    }
 }
 
 // Generate a unique ID
 function generateId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
+
+// Generate UUID for initial employee data
+function generateUUID() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+        /[xy]/g,
+        function (c) {
+            var r = (Math.random() * 16) | 0,
+                v = c === "x" ? r : (r & 0x3) | 0x8;
+            return v.toString(16);
+        }
+    );
+}
+
+// Make functions available globally
+window.editEmployee = editEmployee;
+window.openDeleteModal = openDeleteModal;
+window.viewEmployeeDetails = viewEmployeeDetails;
