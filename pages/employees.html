@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dashboard - Employee Management System</title>
+        <title>Employees - Employee Management System</title>
         <!-- Tailwind CSS and DaisyUI via CDN -->
         <link
             href="https://cdn.jsdelivr.net/npm/daisyui@5"
@@ -78,39 +78,10 @@
                 <!-- Page content here -->
                 <div class="container mx-auto">
                     <div class="flex justify-between items-center mb-6">
-                        <h1 class="text-2xl font-bold">Employee Management</h1>
+                        <h1 class="text-2xl font-bold">Employees List</h1>
                         <button id="addEmployeeBtn" class="btn btn-primary">
                             Add Employee
                         </button>
-                    </div>
-
-                    <!-- Dashboard Stats -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                        <div
-                            class="stat-card bg-base-100 shadow-xl rounded-box p-6 fade-in"
-                        >
-                            <div class="stat-title">Total Employees</div>
-                            <div class="stat-value" id="totalEmployees">0</div>
-                            <div class="stat-desc">Active personnel</div>
-                        </div>
-                        <div
-                            class="stat-card bg-base-100 shadow-xl rounded-box p-6 fade-in"
-                            style="animation-delay: 0.2s"
-                        >
-                            <div class="stat-title">Departments</div>
-                            <div class="stat-value" id="totalDepartments">
-                                0
-                            </div>
-                            <div class="stat-desc">Across organization</div>
-                        </div>
-                        <div
-                            class="stat-card bg-base-100 shadow-xl rounded-box p-6 fade-in"
-                            style="animation-delay: 0.4s"
-                        >
-                            <div class="stat-title">Recent Additions</div>
-                            <div class="stat-value" id="recentAdditions">0</div>
-                            <div class="stat-desc">Last 30 days</div>
-                        </div>
                     </div>
 
                     <!-- Search and filter -->
@@ -152,6 +123,52 @@
                             <option value="Marketing">Marketing</option>
                             <option value="Operations">Operations</option>
                         </select>
+
+                        <!-- Export button -->
+                        <button id="exportCSVBtn" class="btn btn-outline">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 mr-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                />
+                            </svg>
+                            Export CSV
+                        </button>
+                    </div>
+
+                    <!-- Sorting options -->
+                    <div class="flex justify-end mb-4">
+                        <div class="form-control">
+                            <div class="input-group">
+                                <span>Sort by:</span>
+                                <select
+                                    id="sortField"
+                                    class="select select-bordered select-sm"
+                                >
+                                    <option value="name">Name</option>
+                                    <option value="position">Position</option>
+                                    <option value="department">
+                                        Department
+                                    </option>
+                                    <option value="hireDate">Hire Date</option>
+                                </select>
+                                <select
+                                    id="sortDirection"
+                                    class="select select-bordered select-sm"
+                                >
+                                    <option value="asc">Ascending</option>
+                                    <option value="desc">Descending</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Employees list -->
@@ -164,6 +181,7 @@
                                     <th>Position</th>
                                     <th>Department</th>
                                     <th>Email</th>
+                                    <th>Hire Date</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -182,6 +200,27 @@
                             No employees found. Add one to get started!
                         </p>
                     </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center my-6">
+                        <div class="join">
+                            <button
+                                class="join-item btn btn-sm"
+                                id="prevPageBtn"
+                            >
+                                «
+                            </button>
+                            <button class="join-item btn btn-sm" id="pageInfo">
+                                Page 1
+                            </button>
+                            <button
+                                class="join-item btn btn-sm"
+                                id="nextPageBtn"
+                            >
+                                »
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -196,9 +235,11 @@
                         </h2>
                     </li>
                     <li>
-                        <a href="./dashboard.html" class="active">Dashboard</a>
+                        <a href="./dashboard.html">Dashboard</a>
                     </li>
-                    <li><a href="./employees.html">Employees</a></li>
+                    <li>
+                        <a href="./employees.html" class="active">Employees</a>
+                    </li>
                     <li><a href="./departments.html">Departments</a></li>
                     <li class="mt-auto">
                         <a id="sidebarLogout">Logout</a>
@@ -357,6 +398,6 @@
         <script src="../js/main.js"></script>
         <script src="../js/auth.js"></script>
         <script src="../js/notifications.js"></script>
-        <script src="../js/employee.js"></script>
+        <script src="../js/employees.js"></script>
     </body>
 </html>

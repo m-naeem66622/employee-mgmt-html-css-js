@@ -116,7 +116,12 @@ function renderEmployeeList() {
             <td>${employee.department}</td>
             <td>${employee.email}</td>
             <td>
-                <div class="flex gap-2">
+                <div class="flex gap-2 flex-wrap">
+                    <button class="btn btn-sm btn-primary" data-id="${
+                        employee.id
+                    }" onclick="viewEmployeeDetails('${employee.id}')">
+                        View
+                    </button>
                     <button class="btn btn-sm btn-info" data-id="${
                         employee.id
                     }" onclick="editEmployee('${employee.id}')">
@@ -323,6 +328,15 @@ function generateId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
+// Navigate to employee details page
+function viewEmployeeDetails(id) {
+    if (!id) return;
+
+    // Navigate to employee detail page with the employee ID as a query parameter
+    window.location.href = `./pages/employeeDetail.html?id=${id}`;
+}
+
 // Make functions available globally
 window.editEmployee = editEmployee;
 window.openDeleteModal = openDeleteModal;
+window.viewEmployeeDetails = viewEmployeeDetails;

@@ -65,7 +65,7 @@ function handleLogin(e) {
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
     // Redirect to dashboard
-    window.location.href = "dashboard.html";
+    window.location.href = "./dashboard.html";
 }
 
 // Handle register form submission
@@ -121,7 +121,7 @@ function handleRegister(e) {
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
     // Redirect to dashboard
-    window.location.href = "dashboard.html";
+    window.location.href = "./dashboard.html";
 }
 
 // Handle logout
