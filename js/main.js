@@ -14,7 +14,12 @@ function checkAuth() {
 
     const currentUser = localStorage.getItem("currentUser");
     if (!currentUser) {
-        window.location.href = "./pages/login.html";
+        // Check if we're already in the pages directory
+        if (window.location.pathname.includes("/pages/")) {
+            window.location.href = "./login.html"; // Same directory path
+        } else {
+            window.location.href = "./pages/login.html"; // From root directory
+        }
     }
 }
 
