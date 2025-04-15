@@ -203,7 +203,7 @@ function loadTheme() {
         document.querySelector("html").setAttribute("data-theme", savedTheme);
     } else {
         // Default theme if none is saved
-        document.querySelector("html").setAttribute("data-theme", "light");
+        document.querySelector("html").setAttribute("data-theme", "abyss");
     }
 }
 

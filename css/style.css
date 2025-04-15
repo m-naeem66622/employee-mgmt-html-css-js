@@ -1,4 +1,15 @@
 /* Custom styles and animations for the Employee Management System */
+:root {
+    --p: 220 100% 50%;    /* primary */
+    --pc: 220 100% 95%;   /* primary content */
+    --su: 140 70% 40%;    /* success */
+    --suc: 140 70% 95%;   /* success content */
+    --er: 0 80% 50%;      /* error */
+    --erc: 0 80% 95%;     /* error content */
+    --bc: 0 0% 10%;       /* base content */
+    --b2: 0 0% 96%;       /* light background */
+    --b3: 0 0% 90%;
+}
 
 /* Fade-in animation for elements */
 @keyframes fadeIn {
