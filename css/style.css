@@ -139,3 +139,17 @@
 .select:focus {
     box-shadow: 0 0 0 2px hsl(var(--p) / 0.3);
 }
+
+/* Placeholder styling */
+::placeholder {
+    color: rgba(156, 163, 175, 0.7);  /* Gray color with opacity */
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: rgba(156, 163, 175, 0.7);
+}
+
+::-ms-input-placeholder {
+    color: rgba(156, 163, 175, 0.7);
+}
