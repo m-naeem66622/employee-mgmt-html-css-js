@@ -768,11 +768,7 @@ function viewEmployeeDetails(id) {
     const isDashboardPage = window.location.pathname.includes("dashboard.html");
 
     // Navigate to employee detail page with the employee ID as a query parameter
-    if (isDashboardPage) {
-        window.location.href = `./employeeDetail.html?id=${id}`;
-    } else {
-        window.location.href = `./employeeDetail.html?id=${id}`;
-    }
+    window.location.href = `./employeeDetail.html?id=${id}`;
 }
 
 // Generate a unique ID
