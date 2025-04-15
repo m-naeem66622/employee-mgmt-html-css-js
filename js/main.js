@@ -57,6 +57,9 @@ const themes = [
     "dim",
     "nord",
     "sunset",
+    "caramellatte",
+    "abyss",
+    "silk",
 ];
 
 // Apply the selected theme
@@ -210,10 +213,15 @@ function loadTheme() {
 // Initialize the application
 function init() {
     checkAuth();
-    loadTheme();
     createThemeModal();
     setupThemeToggle();
 }
+
+// Apply theme before page content is visible to prevent flicker
+(function() {
+    const savedTheme = localStorage.getItem("theme") || "abyss";
+    document.querySelector("html").setAttribute("data-theme", savedTheme);
+})();
 
 // Filter themes based on search input and selected category
 function filterThemes() {
@@ -242,6 +250,8 @@ function filterThemes() {
             "acid",
             "lemonade",
             "winter",
+            "caramellatte",
+            "silk",
         ],
         dark: [
             "dark",
@@ -256,6 +266,7 @@ function filterThemes() {
             "dim",
             "nord",
             "sunset",
+            "abyss",
         ],
         colorful: [
             "cupcake",
@@ -275,8 +286,18 @@ function filterThemes() {
             "acid",
             "lemonade",
             "sunset",
+            "caramellatte",
+            "silk",
         ],
-        corporate: ["light", "corporate", "business", "winter", "dim", "nord"],
+        corporate: [
+            "light",
+            "corporate",
+            "business",
+            "winter",
+            "dim",
+            "nord",
+            "silk",
+        ],
         retro: ["retro", "cyberpunk", "valentine", "lofi", "dracula", "coffee"],
     };
 
